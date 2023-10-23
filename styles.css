@@ -6,9 +6,11 @@ body {
     display: flex;
     font-family: 'Inter', sans-serif;
     margin: 0px;
+    transition: 1.0s;
 }
 
 body.dark {
+    transition: 1.0s;
     background-color: hsl(230, 17%, 14%);
 }
 
@@ -22,6 +24,7 @@ body.dark .instagram-container,
 body.dark .twitter-container,
 body.dark .youtube-container,
 body.dark .container{
+    transition: 1.0s;
     background-color: hsl(228, 28%, 20%);
 }
 
@@ -62,6 +65,7 @@ header p {
 .main-dashboard {
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 
 .facebook-container,
@@ -75,11 +79,12 @@ header p {
     text-align: center;
     justify-content: space-between;
     padding-bottom: 20px;
-    width: 85%;
+    width: 80%;
     height: 220px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    transition: 1.0s;
 }
 
 .border {
@@ -152,9 +157,7 @@ header p {
 
 .overview-dashboard {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 85%;
     margin: auto;
 }
 
@@ -165,11 +168,9 @@ header p {
     border-radius: 5px;
     background-color: hsl(222, 50%, 96%);
     font-weight: 700;
-    /*text-align: center;*/
-    /*justify-content: space-between;*/
     height: 130px;
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
 }
 
@@ -232,7 +233,7 @@ header p {
     height: 0;
 }
 
-.slider:before {
+.slider::before {
     position: absolute;
     content: "";
     height: 16px;
@@ -241,7 +242,6 @@ header p {
     bottom: 4px;
     background-color: white;
     border-radius: 50%;
-    -webkit-transition: .4s;
     transition: .4s;
 }
 
@@ -254,7 +254,6 @@ header p {
     bottom: 0;
     background-color: hsl(230, 22%, 74%);
     border-radius: 34px;
-    -webkit-transition: .4s;
     transition: .4s;
 }
 
@@ -267,7 +266,6 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
 
@@ -277,22 +275,54 @@ input:checked + .slider:before {
         flex-direction: column;
     }
 
-    .main-dashboard {
+    .main-dashboard,
+    .overview-dashboard{
         flex-direction: column;
+        width: 100%;
         max-width: 375px;
     }
 
-    .overview-dashboard {
-        flex-direction: column;
+    .container {
+        width: 80%;
     }
 }
 
 /*Desktop*/
 @media screen and (min-width: 376px) {
+    body {
+        display: block;
+    }
+
+    header {
+        width: 75%;
+    }
+
     .main-dashboard,
     .overview-dashboard
     {
+        width: 75%;
         flex-direction: row;
-        text-align: center;
+        margin: auto;
     }
+
+    .main-dashboard {
+        gap: 20px;
+    }
+
+    .overview-dashboard {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .facebook-container,
+    .twitter-container,
+    .instagram-container,
+    .youtube-container {
+        width: 23%;
+    }
+
+    .container {
+        width: 23%;
+    }
+
 }
